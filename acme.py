@@ -5,9 +5,9 @@ class Product():
     def __init__(self, name, price=10, weight=20, flammability=0.5,
                  identifier=1):
         self.name = name
-        self.price = random.randint(5, 101)
-        self.weight = random.randint(5, 101)
-        self.flammability = random.uniform(0.0, 2.5)
+        self.price = price
+        self.weight = weight
+        self.flammability = flammability
         self.identifier = random.randint(1000000, 100000000)
 
     def stealability(self):
@@ -27,13 +27,6 @@ class Product():
             return (round(danger), '...boom!')
         else:
             return (round(danger), '...BABOOM!!')
-
-    def summary(self):
-        sample = Product('Toy')
-        print('ACME CORPORATION PRODUCT SUMMARY')
-        print('Product:', self.name)
-        print('Stealability:', sample.stealability())
-        print('Explosion Type', sample.explode())
 
 
 class BoxingGlove(Product):

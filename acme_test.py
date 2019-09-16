@@ -17,20 +17,23 @@ class AcmeProductTests(unittest.TestCase):
         self.assertIsInstance(theft, tuple)
         self.assertIsInstance(boom, tuple)
 
-#I'm not sure how to keep the defaults while also generating random numbers
-#     def test_default_product_price(self):
-#         """Test default product price being 10."""
-#         prod = Product('Test Product')
-#         self.assertEqual(prod.price, 10)
+    def test_default_product_price(self):
+        prod = Product('Test Product')
+        self.assertEqual(prod.price, 10)
 
 
+class AcmeReportTests(unittest.TestCase):
+    def test_default_num_products(self):
+        list = generate_products()
+        self.assertEqual(len(list), 30)
 
-#got stuck here - I think I need to do some studying on testing
-# class AcmeReportTests(unittest.TestCase):
-#     def test_default_num_products(self):
-#         list = generate_products()
-#         self.assertIsInstance(list[0], str, str)
-
+    def test_legal_names(self):
+        list = generate_products()
+        for x in list:
+            name = x[0]
+        self.assertIs(type(name), tuple)
+        self.assertIn(name[0], ADJECTIVES)
+        self.assertIn(name[1], NOUNS)
 
 
 if __name__ == '__main__':
